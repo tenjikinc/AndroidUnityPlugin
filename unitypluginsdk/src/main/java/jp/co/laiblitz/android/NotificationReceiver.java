@@ -48,14 +48,13 @@ public class NotificationReceiver extends BroadcastReceiver {
             e.printStackTrace();
             return;
         }
-        final int appIconResId = applicationInfo.banner;
-        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), appIconResId);
+        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), applicationInfo.icon);
 
         // Create NotificationBuilder
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentIntent(pendingIntent);
         builder.setTicker(title);                       // Status bar message
-        builder.setSmallIcon(appIconResId);             // Status bar icon
+        builder.setSmallIcon(applicationInfo.banner);   // Status bar icon
         builder.setContentTitle(title);                 // Status bar open title
         builder.setContentText(message);                // Status bar open subtitle
         builder.setLargeIcon(largeIcon);                // Status bar open list icon
