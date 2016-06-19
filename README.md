@@ -1,8 +1,12 @@
 ## build
 
-```bash
-gradlew jar
 ```
+gradlew unitypluginsdk:makeJar
+```
+
+### output jar path
+
+unitypluginsdk/release/laiblitzLibrary.jar
 
 ## usage
 
@@ -13,7 +17,7 @@ buildで生成されたjarを [UnityRoot]/Assets/Plugin/Android/ にコピー
 ### Toast
 
 ```csharp
-using (var util = new AndroidJavaClass("jp.tenjik.unity.util.ToastUtil"))
+using (var util = new AndroidJavaClass("jp.co.laiblitz.android.unity.ToastUtil"))
 {
     util.CallStatic("showLong", "Toast long length.");
     util.CallStatic("showShort", "Toast short length.");
@@ -30,7 +34,7 @@ using (var util = new AndroidJavaClass("jp.tenjik.unity.util.ToastUtil"))
 private static int GetAppVersionCode_Android()
 {
     int code;
-    using (var util = new AndroidJavaClass("jp.tenjik.unity.util.PackageInfoUtil"))
+    using (var util = new AndroidJavaClass("jp.co.laiblitz.android.unity.PackageInfoUtil"))
         code = util.CallStatic<int>("getVersionCode");
     return code;
 }
@@ -41,7 +45,7 @@ private static int GetAppVersionCode_Android()
 private static string GetAppVersionName_Android()
 {
     string name;
-    using (var util = new AndroidJavaClass("jp.tenjik.unity.util.PackageInfoUtil"))
+    using (var util = new AndroidJavaClass("jp.co.laiblitz.android.unity.PackageInfoUtil"))
         name = util.CallStatic<string>("getVersionName");
     return name;
 }
