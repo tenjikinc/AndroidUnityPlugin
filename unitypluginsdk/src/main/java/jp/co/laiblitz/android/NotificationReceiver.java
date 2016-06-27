@@ -21,8 +21,12 @@ import jp.co.laiblitz.android.constants.LocalNotificationConstants;
  */
 public class NotificationReceiver extends BroadcastReceiver {
 
+    private static final String NOTIFY_ICON_NAME = "notify";
+
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        String packageName = context.getPackageName();
 
         // Receive notification vars
         Integer notificationId = intent.getIntExtra(LocalNotificationConstants.INTENT_ID_KEY, 0);
@@ -33,7 +37,7 @@ public class NotificationReceiver extends BroadcastReceiver {
         // run app intent
         Intent runIntent = new Intent(Intent.ACTION_MAIN);
         runIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        runIntent.setClassName(context.getPackageName(), action);
+        runIntent.setClassName(packageName, action);
         runIntent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         // Intent to PendingIntent
@@ -43,18 +47,22 @@ public class NotificationReceiver extends BroadcastReceiver {
         final PackageManager pm = context.getPackageManager();
         ApplicationInfo applicationInfo = null;
         try {
-            applicationInfo = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            applicationInfo = pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
             return;
         }
         Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), applicationInfo.icon);
 
+        // Notify icon
+        // Unity path (/Assets/Plugins/Android/res/drawable/notify.png)
+        int notifyIconResourceId = context.getResources().getIdentifier(NOTIFY_ICON_NAME, "drawable", packageName);
+
         // Create NotificationBuilder
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setContentIntent(pendingIntent);
         builder.setTicker(title);                       // Status bar message
-        builder.setSmallIcon(applicationInfo.banner);   // Status bar icon
+        builder.setSmallIcon(notifyIconResourceId);     // Status bar icon
         builder.setContentTitle(title);                 // Status bar open title
         builder.setContentText(message);                // Status bar open subtitle
         builder.setLargeIcon(largeIcon);                // Status bar open list icon
