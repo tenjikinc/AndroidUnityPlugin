@@ -28,10 +28,10 @@ public class NotificationUtil {
      * @param sentAt         何秒後に通知するか
      * @param isUnique       通知を重複させないか
      */
-    public static void createLocalNotification(int notificationId, String title, String message, int sentAt, boolean isUnique) {
+    public static void setLocalNotification(int notificationId, String title, String message, int sentAt, boolean isUnique) {
         // Delete duplicate notification
         if (isUnique)
-            deleteNotification(notificationId);
+            cancelLocalNotification(notificationId);
 
         // Create intent
         Activity activity = UnityPlayer.currentActivity;
@@ -61,15 +61,15 @@ public class NotificationUtil {
      * @param message        通知メッセージ
      * @param sentAt         何秒後に通知するか
      */
-    public static void createLocalNotification(int notificationId, String title, String message, int sentAt) {
-        createLocalNotification(notificationId, title, message, sentAt, true);
+    public static void setLocalNotification(int notificationId, String title, String message, int sentAt) {
+        setLocalNotification(notificationId, title, message, sentAt, true);
     }
 
     /**
-     * ローカル通知を削除する
+     * ローカル通知をキャンセルする
      * @param notificationId 削除する通知ID
      */
-    public static void deleteNotification(int notificationId) {
+    public static void cancelLocalNotification(int notificationId) {
         Context context = UnityPlayer.currentActivity.getApplicationContext();
         Intent intent = new Intent(context, NotificationReceiver.class);
 
