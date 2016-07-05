@@ -21,7 +21,7 @@ import jp.co.laiblitz.android.constants.LocalNotificationConstants;
  */
 public class NotificationReceiver extends BroadcastReceiver {
 
-    private static final String NOTIFY_ICON_NAME = "notify";
+    private static final String NOTIFY_ICON_NAME = "notification";
 
     @Override
     public void onReceive(Context context, Intent intent) {
