@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "146648535178",
+    "firebase_url": "https://fcm-sample-58404.firebaseio.com",
+    "project_id": "fcm-sample-58404",
+    "storage_bucket": "fcm-sample-58404.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146648535178:android:9c253a0a50852ec1",
+        "android_client_info": {
+          "package_name": "jp.co.laiblitz.dragonslinger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146648535178-ncri03lh606er28f3ldq4llutnkednf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjKfdVViGc5k9VVjIm4M09vtaa4lblBAA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
