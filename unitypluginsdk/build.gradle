@@ -1,12 +1,10 @@
 apply plugin: 'java'
-apply plugin: 'com.google.gms.google-services'
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('/Applications/Unity/PlaybackEngines/AndroidPlayer/Variations/mono/Release/Classes/classes.jar')
     compile files('libs/android.jar')
     compile files('libs/android-support-v4.jar')
-    compile 'com.google.firebase:firebase-messaging:9.6.1'
 }
 
 task clearJar(type: Delete) {
