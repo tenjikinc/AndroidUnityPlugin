@@ -1,7 +1,7 @@
 ## build
 
 ```
-gradlew unitypluginsdk:makeJar
+gradlew app:clean app:makeJar
 ```
 
 ### output jar path
