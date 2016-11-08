@@ -1,6 +1,5 @@
 apply plugin: 'java'
 
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/classes.jar')
