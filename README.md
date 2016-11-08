@@ -6,7 +6,7 @@ gradlew app:clean app:makeJar
 
 ### output jar path
 
-unitypluginsdk/release/laiblitzLibrary.jar
+app/release/laiblitzLibrary.jar
 
 ## usage
 
