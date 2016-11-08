@@ -1,17 +1,5 @@
-apply plugin: 'com.android.application'
+apply plugin: 'java'
 
-android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
-
-    defaultConfig {
-        applicationId "jp.co.laiblitz.android.unity.plugin"
-        minSdkVersion 19
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-    }
-}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -25,10 +13,10 @@ task clearJar(type: Delete) {
     delete 'build/libs/' + 'laiblitzLibrary.jar'
 }
 task makeJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
+    from('build/libs/')
     into('release/')
-    include('classes.jar')
-    rename('classes.jar', 'laiblitzLibrary.jar')
+    include('app.jar')
+    rename('app.jar', 'laiblitzLibrary.jar')
 }
 
 makeJar.dependsOn(clearJar, build)
