@@ -28,14 +28,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-task clearJar(type: Delete) {
-    delete 'build/libs/' + 'laiblitzLibrary.jar'
-}
-task makeJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
+task exportAar(type: Copy)  {
+    from('build/outputs/aar/')
     into('release/')
-    include('classes.jar')
-    rename('classes.jar', 'laiblitzLibrary.jar')
+    include('library-release.aar')
+    rename('library-release.aar', 'laiblitzLibrary.aar')
 }
-
-makeJar.dependsOn(clearJar, build)
