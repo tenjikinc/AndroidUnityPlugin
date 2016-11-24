@@ -4,15 +4,15 @@
 gradlew library:clean library:assembleDebug library:makeJar
 ```
 
-### output jar path
+### output aar path
 
-android/release/laiblitzLibrary.jar
+library/release/laiblitzLibrary.aar
 
 ## usage
 
 Unity側
 
-buildで生成されたjarを [UnityRoot]/Assets/Plugin/Android/ にコピー
+buildで生成されたaarを [UnityRoot]/Assets/Plugin/Android/ にコピー
 
 ### Toast
 
