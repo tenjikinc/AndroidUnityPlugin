@@ -1,7 +1,7 @@
 ## build
 
 ```
-gradlew library:clean library:assembleDebug library:makeJar
+gradlew library:clean library:assembleDebug library:exportAar
 ```
 
 ### output aar path
