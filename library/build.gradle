@@ -22,6 +22,7 @@ android {
 android.libraryVariants.all { variant ->
     variant.outputs.each { output ->
         output.packageLibrary.exclude('libs/classes.jar')
+        output.packageLibrary.exclude('libs/android-support-v4.jar')
     }
 }
 
