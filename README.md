@@ -1,18 +1,18 @@
 ## build
 
 ```
-gradlew unitypluginsdk:makeJar
+gradlew library:clean library:assembleRelease library:exportAar
 ```
 
-### output jar path
+### output aar path
 
-unitypluginsdk/release/laiblitzLibrary.jar
+library/release/laiblitzLibrary.aar
 
 ## usage
 
 Unity側
 
-buildで生成されたjarを [UnityRoot]/Assets/Plugin/Android/ にコピー
+buildで生成されたaarを [UnityRoot]/Assets/Plugin/Android/ にコピー
 
 ### Toast
 
