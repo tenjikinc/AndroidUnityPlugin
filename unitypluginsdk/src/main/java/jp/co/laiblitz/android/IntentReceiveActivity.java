@@ -17,10 +17,11 @@ public class IntentReceiveActivity extends Activity {
 
         // スキーマ取得
         Uri uri = getIntent().getData();
+        // スキーマをシングルトンに保持
+        ApplicationCache.getInstance().customScheme = uri.toString();
 
+        // UnityのActivityを呼ぶ
         Intent intent = new Intent(this, UnityPlayerActivity.class);
-        // インテントでカスタムスキーマURLを渡す
-        intent.putExtra("customScheme", uri.toString());
         startActivity(intent);
         finish();
     }
