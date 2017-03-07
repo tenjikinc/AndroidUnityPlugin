@@ -155,3 +155,10 @@ namespace App.Util
 }
 
 ```
+
+AndroidManifest.xml
+
+```xml
+<!-- local notification receiver -->
+<receiver android:name="jp.co.laiblitz.android.NotificationReceiver" />
+```
